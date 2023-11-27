@@ -1,12 +1,3 @@
-
-```
-Email: admin@example.com
-Password: admin123
-```
-
-Website: https://lcommerce.net
-
-```
 Email: user1@example.com
 Password: useruser1
 
