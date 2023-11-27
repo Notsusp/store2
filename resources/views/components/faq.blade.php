@@ -59,7 +59,7 @@
                 Cum pot contacta serviciul clienți?
             </button>
             <div class="hidden mt-2">
-                <p class="text-gray-700">Suntem aici pentru a vă ajuta! Puteți să ne contactați prin mail sau printr-un telefon pe care le gasiti disponibile pe <a class="underline" href="http://localhost:8000/contact">pagina noastră de contact.</a></p>
+                <p class="text-gray-700">Suntem aici pentru a vă ajuta! Puteți să ne contactați prin mail sau printr-un telefon pe care le gasiti disponibile pe <a class="underline" href="{{  url('') }}/contact">pagina noastră de contact.</a></p>
             </div>
         </div>
         <div class="mb-4">

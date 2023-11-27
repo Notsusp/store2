@@ -67,10 +67,10 @@
     <div class="w-full mx-auto flex flex-wrap">
       <div class="flex w-full lg:w-1/2 ">
         <div class="px-3 md:px-0">
-          <h3 class="font-bold text-white"><a href="http://localhost:8000/despre-noi">Despre Noi</a></h3>
-          <h3 class="font-bold text-white"><a href="http://localhost:8000/faq">FAQ</a></h3>
-          <h3 class="font-bold text-white"><a href="http://localhost:8000/termeni-si-conditii">Termeni si Conditii</a></h3>
-          <h3 class="font-bold text-white"><a href="http://localhost:8000/politica-cookies">Politica cookies</a></h3>
+          <h3 class="font-bold text-white"><a href="{{  url('') }}/despre-noi">Despre Noi</a></h3>
+          <h3 class="font-bold text-white"><a href="{{  url('') }}/faq">FAQ</a></h3>
+          <h3 class="font-bold text-white"><a href="{{  url('') }}/termeni-si-conditii">Termeni si Conditii</a></h3>
+          <h3 class="font-bold text-white"><a href="{{  url('') }}/politica-cookies">Politica cookies</a></h3>
         </div>
       </div>
       <div class="flex w-full lg:w-1/2 lg:justify-end lg:text-right mt-6 md:mt-0">

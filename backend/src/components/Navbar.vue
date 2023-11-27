@@ -6,7 +6,7 @@
     </button>
     <Menu as="div" class="relative inline-block text-left">
       <MenuButton class="flex items-center">
-        <img src="http://localhost:8000/storage/7AMlogo.svg" class="rounded-full w-8 mr-2">
+        <img src="{{  url('') }}/storage/7AMlogo.svg" class="rounded-full w-8 mr-2">
         <small>{{currentUser.name}}</small>
         <ChevronDownIcon
           class="h-5 w-5 text-violet-200 hover:text-violet-100"

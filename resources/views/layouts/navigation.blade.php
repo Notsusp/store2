@@ -8,7 +8,7 @@
 >
     <div>
         <a href="{{ route('home') }}" class="block py-navbar-item pl-5"> 
-            <img src="http://localhost:8000/storage/7AMlogo.svg" class="rounded-full w-12 mr-2">
+            <img src="{{  url('') }}/storage/7AMlogo.svg" class="rounded-full w-12 mr-2">
         </a>
     </div>
     <!-- Responsive Menu -->
