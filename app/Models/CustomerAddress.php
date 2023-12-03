@@ -22,4 +22,8 @@ class CustomerAddress extends Model
     {
         return $this->belongsTo(Country::class, 'country_code', 'code');
     }
+    public function category()
+    {
+        return $this->belongsTo(Category::class)->withDefault();
+    }
 }
