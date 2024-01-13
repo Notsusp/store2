@@ -150,7 +150,7 @@ function updateDashboard() {
   axiosClient.get(`/dashboard/income-amount`, {params: {d}}).then(({data}) => {
     totalIncome.value = new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'ron',
       minimumFractionDigits: 0
     })
       .format(data);

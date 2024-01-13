@@ -18,9 +18,17 @@ class AdminUserSeeder extends Seeder
         User::create([
             'name' => 'Admin',
             'email' => 'admin@7ammakeyourday.ro',
-            'password' => bcrypt('o$lfl]}yK2.S#YPN`]W]'),
+            'password' => bcrypt('test123'),
             'email_verified_at' => now(),
             'is_admin' => true
         ]);
+        User::create([
+            'name' => 'User',
+            'email' => 'user@user.ro',
+            'password' => bcrypt('test123'),
+            'email_verified_at' => now(),
+            'is_admin' => false,
+        ]);
+        
     }
 }

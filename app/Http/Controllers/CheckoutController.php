@@ -56,7 +56,7 @@ class CheckoutController extends Controller
             $totalPrice += $product->price * $quantity;
             $lineItems[] = [
                 'price_data' => [
-                    'currency' => 'usd',
+                    'currency' => 'ron',
                     'product_data' => [
                         'name' => $product->title,
                         'images' => $product->image ? [$product->image] : []
@@ -81,6 +81,28 @@ class CheckoutController extends Controller
 //        dd(route('checkout.success', [], true) . '?session_id={CHECKOUT_SESSION_ID}');
 
         $session = \Stripe\Checkout\Session::create([
+            'shipping_options' => [
+    [
+      'shipping_rate_data' => [
+        'type' => 'fixed_amount',
+        'fixed_amount' => [
+          'amount' => 1500,
+          'currency' => 'ron',
+        ],
+        'display_name' => 'Sameday',
+        'delivery_estimate' => [
+          'minimum' => [
+            'unit' => 'business_day',
+            'value' => 1,
+          ],
+          'maximum' => [
+            'unit' => 'business_day',
+            'value' => 3,
+          ],
+        ],
+      ],
+    ],
+  ],
             'line_items' => $lineItems,
             'mode' => 'payment',
             'customer_creation' => 'always',
@@ -176,7 +198,7 @@ class CheckoutController extends Controller
         foreach ($order->items as $item) {
             $lineItems[] = [
                 'price_data' => [
-                    'currency' => 'usd',
+                    'currency' => 'ron',
                     'product_data' => [
                         'name' => $item->product->title,
 //                        'images' => [$product->image]
@@ -188,8 +210,31 @@ class CheckoutController extends Controller
         }
 
         $session = \Stripe\Checkout\Session::create([
+            'shipping_options' => [
+    [
+      'shipping_rate_data' => [
+        'type' => 'fixed_amount',
+        'fixed_amount' => [
+          'amount' => 1500,
+          'currency' => 'ron',
+        ],
+        'display_name' => 'Sameday',
+        'delivery_estimate' => [
+          'minimum' => [
+            'unit' => 'business_day',
+            'value' => 1,
+          ],
+          'maximum' => [
+            'unit' => 'business_day',
+            'value' => 3,
+          ],
+        ],
+      ],
+    ],
+  ],
             'line_items' => $lineItems,
             'mode' => 'payment',
+            'customer_creation' => 'always',
             'success_url' => route('checkout.success', [], true) . '?session_id={CHECKOUT_SESSION_ID}',
             'cancel_url' => route('checkout.failure', [], true),
         ]);

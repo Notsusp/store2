@@ -16,7 +16,7 @@
                 @csrf
 
                 <div>
-                    <x-button>
+                    <x-button id="btnCounter" disabled>
                         {{ __('Resend Verification Email') }}
                     </x-button>
                 </div>

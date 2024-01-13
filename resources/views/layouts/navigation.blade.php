@@ -292,7 +292,7 @@
                         x-show="open"
                         x-transition
                         x-cloak
-                        class="absolute z-10 right-0 bg-#FFFFFF py-2 w-48"
+                        class="absolute z-10 right-0 bg-slate-800 py-2 w-48"
                     >
                         <li>
                             <a
