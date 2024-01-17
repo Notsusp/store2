@@ -1,4 +1,59 @@
 <x-app-layout>
+<?php
+
+    $samedayClient = new Sameday\SamedayClient('7ammakeyourdayTEST','b0QCo9$X','https://sameday-api.demo.zitec.com');
+        $sameday = new Sameday\Sameday($samedayClient);
+        echo json_encode($samedayClient);
+        echo json_encode($sameday);
+        exit;
+        ?>
+        /*try {
+            // Get services for delivery.
+            $sameday->getServices(new \Sameday\Requests\SamedayGetServicesRequest());
+        } catch (\Sameday\Exceptions\SamedayServerException $e) {
+            // When server returns an error.
+            echo 'Server returned an error: ' . $e->getMessage();
+            exit;
+        } catch (\Sameday\Exceptions\SamedaySDKException $e) {
+            // When validation fails or other local issues.
+            echo 'Sameday SDK returned an error: ' . $e->getMessage();
+            exit;
+        }
+        $pickupPoints = $sameday->getPickupPoints(new \Sameday\Requests\SamedayGetPickupPointsRequest());
+        $pickupPointId = $pickupPoints->getPickupPoints()[0]->getId();
+        // Get list of available services for client.
+$services = $sameday->getServices(new \Sameday\Requests\SamedayGetServicesRequest());
+// Use first service id. These ids are different for DEMO and PROD environments. This id can be cached on your application.
+// This is just for example purpose. Choose the right service for your app.
+// For instance if requesting with 2H service (delivery in 2 hours) and cities are different (pickup point city and recipient city) then the validation will fail.
+$serviceId = $services->getServices()[0]->getId();
+
+try {
+    $awb = $sameday->postAwb(new \Sameday\Requests\SamedayPostAwbRequest(
+        $pickupPointId,
+        null, // Contact person id can be left to NULL and default will be used.
+        new \Sameday\Objects\Types\PackageType(\Sameday\Objects\Types\PackageType::PARCEL),
+        [
+            // This will generate an AWB expedition with 2 parcels (packages). Only the $weight is mandatory.
+            new \Sameday\Objects\ParcelDimensionsObject(0.5),
+            new \Sameday\Objects\ParcelDimensionsObject(3, 15, 28, 67)
+        ],
+        $serviceId,
+        new \Sameday\Objects\Types\AwbPaymentType(\Sameday\Objects\Types\AwbPaymentType::CLIENT), // Who pays for the AWB. CLIENT is the only allowed value.
+        new \Sameday\Objects\PostAwb\Request\AwbRecipientEntityObject('Huedin', 'Cluj', 'str. Otesani', 'Nume Destinatar', '0700111111', 'destinatar.colet@gmail.com', new \Sameday\Objects\PostAwb\Request\CompanyEntityObject('nume companie SRL')), // AWB recipient. Please note that CompanyEntityObject is optional if the recipient is not company.
+        0, // Insured value.
+        100 // Cash on delivery value. Can be 0 if the payment was made online.
+        // Other parameters may follow, see https://github.com/sameday-courier/php-sdk/blob/master/docs/reference/SamedayPostAwbRequest.md
+    ));
+} catch (\Sameday\Exceptions\SamedayBadRequestException $e) {
+    // When request fails validation. Show the list of validation errors.
+    var_dump($e->getErrors());
+    exit;
+} // Other exceptions may be thrown, see https://github.com/sameday-courier/php-sdk/blob/master/docs/reference.md#core-exceptions
+
+$pdf = $sameday->getAwbPdf(new \Sameday\Requests\SamedayGetAwbPdfRequest($awb->getAwbNumber(), new \Sameday\Objects\Types\AwbPdfType(\Sameday\Objects\Types\AwbPdfType::A6)));
+echo $pdf->getPdf();
+?>*/
     <div  x-data="productItem({{ json_encode([
                     'id' => $product->id,
                     'slug' => $product->slug,

@@ -5,6 +5,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SamedayController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,8 @@ Route::middleware(['guestOrVerified'])->group(function () {
 });
 
 
+
+
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/profile', [ProfileController::class, 'view'])->name('profile');
     Route::post('/profile', [ProfileController::class, 'store'])->name('profile.update');
@@ -42,6 +45,10 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::get('/checkout/failure', [CheckoutController::class, 'failure'])->name('checkout.failure');
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
     Route::get('/orders/{order}', [OrderController::class, 'view'])->name('order.view');
+    Route::get('/pickup-points', [SamedayController::class, 'getPickupPoints']);
+    Route::get('/services', [SamedayController::class, 'getServices']);
+    Route::post('/create-awb', [SamedayController::class, 'createAwb']);
+    Route::get('/awb-pdf/{awbNumber}', [SamedayController::class, 'getAwbPdf']);
 });
 Route::get('/termeni-si-conditii', function(){
     return view('/components/termeni-si-conditii');

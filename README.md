@@ -38,7 +38,7 @@ Just start xampp and turn on Apache and MySQL.
 3. Copy `backend/.env.example` into `backend/.env`
 4. Make sure `VITE_API_BASE_URL` key in `backend/.env` is set to your Laravel API host (Default: http://localhost:8000)
 5. Run `npm run dev`
-6. Open Vue.js Admin Panel in browser and login with
+# To login Open Vue.js Admin Panel (Default: http://localhost:8000) in browser and login with
     ```
     admin@7ammakeyourday.ro
     test123
